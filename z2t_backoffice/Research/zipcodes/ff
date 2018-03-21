@@ -1,0 +1,192 @@
+<html>
+<head>
+<title>Account Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+<table width="820" border="0" align="center" bgcolor="#FFFFFF" CELLPADDING=0 CELLSPACING=0><tr><td>
+
+<div id="zchdr">
+	<div class="linkbar" style="height:22px;">
+		<div style="float:left; margin-left:5px; height:22px; padding-top:4px; width:220px;"><a href="zip-code-statistics.asp" style="font-weight:bold;" title="ZIP Code Database - Facts & Statistics"><img src="images/spacer.png" width="7" height="9" border="0" class="arrow"> ZIP Code Database - Facts &amp; Stats</a></div>
+
+		<div style="float:right; margin-right:170px; height:22px; padding-top:4px;"><a href="default.asp" title="ZIP-Codes.com Homepage">Home</a> | <a href="products.asp" title="ZIP Code Products">Products</a> | <a href="locate-a-post-office.asp" title="Locate a Post Office">Find a Post Office</a> | <a href="search-options.asp" title="FREE ZIP Code Search">Search</a> | <a href="contact.asp" title="Contact ZIP-Codes.com">Contact</a> | <a href="zip_code_directory.asp" title="ZIP Code FAQs">FAQs</a></div>
+
+	</div>
+	<div class="mainbar" style="margin-top:-3px; z-index:2;">
+
+	
+
+	<div class="boxes" style="float:right; width:285px; margin-top:15px; margin-right:10px;">
+		<div style="clear:both; width:275px;">
+			<div style="background-image:url(images/design3/design-sprite.png);background-repeat:no-repeat;background-position:-490px -62px; width:132px; height:42px; margin-right:3px; padding-top:5px; float:left;"><a href="zip-code-database.asp" title="United States ZIP Code Database"><img src="images/spacer.png" width="47" height="32" border="0" style="float:left; background-image:url(images/design3/design-sprite.png);background-repeat:no-repeat;background-position:-430px -30px;">ZIP Code Database</a></div>
+			<div style="background-image:url(images/design3/design-sprite.png);background-repeat:no-repeat;background-position:-490px -62px; width:132px; height:42px; margin-right:3px; padding-top:5px; float:right;"><a href="canadian-postal-code-database.asp" title="Canadian Postal Code Database"><img src="images/spacer.png" width="47" height="32" border="0" style="float:left; background-image:url(images/design3/design-sprite.png);background-repeat:no-repeat;background-position:-430px -96px;">Postal Code Database</a></div>
+		</div>
+
+		<div style="clear:both; width:275px; margin-top:3px;">
+			<div style="background-image:url(images/design3/design-sprite.png);background-repeat:no-repeat;background-position:-490px -62px; width:132px; height:42px; margin-right:3px; padding-top:5px; float:left;"><a href="digital-zip-code-maps.asp" title="Digital ZIP Code Maps"><img src="images/spacer.png" width="47" height="32" border="0" style="float:left; background-image:url(images/design3/design-sprite.png);background-repeat:no-repeat;background-position:-430px -125px;">ZIP Code Maps</a></div>
+			<div style="background-image:url(images/design3/design-sprite.png);background-repeat:no-repeat;background-position:-490px -62px; width:132px; height:42px; margin-right:3px; padding-top:5px; float:right;"><a href="zip-plus-4-database.asp" title="United States ZIP+4 Database"><img src="images/spacer.png" width="47" height="32" border="0" style="float:left; background-image:url(images/design3/design-sprite.png);background-repeat:no-repeat;background-position:-430px -62px;">ZIP+4 Database</a></div>
+		</div>
+	</div>
+	
+
+	</div>
+	<div class="secbar">
+		<h1>ZIP Code List &amp; Demographics Database Download: Digital ZIP Code Database &amp; Maps</h1>
+
+		<h2 title="1-800-425-1169" id="telNumberHeader">1-800-425-1169</h2>
+	</div>
+	<div class="linkbarLogin" style="z-index:1;"><a href="account_home.asp" style="margin-top:4px;" title="Manage Your Account">Account Login</a></div>
+</div>
+<div style="height:1px; clear:both; font-size:1px;">&nbsp;</div>
+
+
+
+<TABLE WIDTH="816" BORDER="0" align="center" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+  	
+    <TD width="170" valign="top">
+
+	<div class="boxer" style="width:170px;">
+		<div class="boxerHeader" style="width:170px;">Account Tools</div>
+		<div class="boxerContent" style="width:169px; font-size:12px; color=orange;">
+			
+
+			&bull;&nbsp;<a href="account_home.asp" class="sideLinks" title="Account Homepage">Account Homepage</a><br />
+			&bull;&nbsp;<a href="account_orders.asp" class="sideLinks" title="Past Orders">Past Orders</a><br />
+			&bull;&nbsp;<a href="account_edit.asp" class="sideLinks" title="Update Account Information">Update Account Info</a><br />
+			&bull;&nbsp;<a href="account_database.asp" class="sideLinks" title="Database Downloads">Database Downloads</a><br />
+
+			&bull;&nbsp;<a href="account_maps.asp" class="sideLinks" title="Map Downloads">Map Downloads</a><br />
+			
+				&bull;&nbsp;<a href="account_store_locator_register.asp" class="sideLinks" title="Store Locator">Store Locator Signup</a><br />
+			
+	
+		</div>
+	</div>
+	<br />
+
+<div class="boxer" style="width:170px;">
+	<div class="boxerHeader" style="width:170px;">Our Products</div>
+
+	<div class="boxerContent" style="width:169px; font-size:12px; color=orange;">
+		&bull;&nbsp;<a href="zip-code-database.asp" class="sideLinks" title="US ZIP Code Database">US ZIP Code Database</a><br />
+		&bull;&nbsp;<a href="zip-plus-4-database.asp" class="sideLinks" title="US ZIP Code Database">US ZIP+4 Database</a><br />
+		&bull;&nbsp;<a href="2010-census-database.asp" class="sideLinks" title="2010 Census Multi Level Database">2010 Census Database</a><br />
+		&bull;&nbsp;<a href="canadian-postal-code-database.asp" class="sideLinks" title="Canadian Database">Canadian Postal Codes</a><br />
+		&bull;&nbsp;<a href="mexican-postal-code-database.asp" class="sideLinks" title="Canadian Database">Mexican Postal Codes</a><span style="color:#FF0000; font-weight:bold; font-size:smaller;"></span><br />
+
+		&bull;&nbsp;<a href="map-boundary-data.asp" class="sideLinks" title="Neighborhood Boundary Data">Boundary Data</a><br />
+                <!--&bull;&nbsp;<a href="address-list-data.asp" class="sideLinks" title="Address List Data">Address List Data</a> <span style="color:#FF0000; font-weight:bold; font-size:smaller;">NEW!</span><br />-->
+		&bull;&nbsp;<a href="digital-zip-code-maps.asp" class="sideLinks" title="ZIP Code Maps">ZIP Code Maps</a><br />
+                &bull;&nbsp;<a href="http://www.area-codes.com" class="sideLinks" title="NPA NXX Database">NPA NXX Database</a><br />
+                &bull;&nbsp;<a href="zip-code-historical-database.asp" class="sideLinks" title="Historical Databases">Historical Databases</a><br />
+		&bull;&nbsp;<a href="zip-code-radius-app.asp" class="sideLinks" title="FREE Radius Application">FREE Radius Application</a><br />
+
+		&bull;&nbsp;<a href="free-zip-code-tools.asp" class="sideLinks" title="FREE Website Tools">FREE Website Tools</a><br />
+		&bull;&nbsp;<a href="free-store-locator.asp" class="sideLinks" title="FREE Store Locator Software">FREE Store Locator</a><br />
+		&bull;&nbsp;<a href="direct-mail-lists.asp" class="sideLinks" title="Marketing & Direct Mail Lists">Direct Mail Lists</a><span style="color:#FF0000; font-weight:bold; font-size:smaller;"> NEW!</span><br />
+        <hr>
+        <!--&bull;&nbsp;<a href="mobile-apps.asp" class="sideLinks" title="FREE iPhone/Android App"><b>FREE iPhone/Android App</b></a><br>-->
+		&bull;&nbsp;<a href="search-options.asp" class="sideLinks" title="FREE Zip Code Lookups"><b>FREE Lookups</b></a>
+
+		<div style="clear:both; cursor:pointer; margin-top:10px;" onClick="document.location='mobile-apps.asp'">
+			<a href="mobile-apps.asp"><img src="images/mobile/mobile-web.png" width="40" height="40" border="0" style="float:left; margin-right: 4px;" alt="ZIP Code Tools for iPhone, Android, Blackberry, and webOS"></a>
+			<a href="mobile-apps.asp" style="font-size:12px; line-height:150%; font-weight:700; text-decoration:none;">ZIP-Codes.com<br>Free Mobile Apps</a>
+		</div>
+
+    </div>
+</div>
+<br />
+
+<script type="text/javascript" src="moo/suggest/autosuggest.js"></script>
+<script type="text/javascript">
+	function loadSuggest() {
+		var oTextbox = new AutoSuggestControl(document.getElementById("fld-city"), new RemoteStateSuggestions());
+		var oTextbox = new AutoSuggestControl(document.getElementById("fld-state"), new RemoteStateSuggestions());
+		var oTextbox = new AutoSuggestControl(document.getElementById("fld-county"), new RemoteStateSuggestions());
+		var oTextbox = new AutoSuggestControl(document.getElementById("fld-city2"), new RemoteStateSuggestions());
+		var oTextbox = new AutoSuggestControl(document.getElementById("fld-state2"), new RemoteStateSuggestions());
+	}
+</script>
+
+<body onLoad="loadSuggest()">
+
+<br /><br />
+</TD>
+	
+    <TD valign="top" style="padding:4px; ">
+
+<div style="margin-left:10px;">
+
+<div id="heading" style="background-image:url(images/zip-code-database/design2-topmast.gif);">
+	<h1>Account Login</h1>
+
+	<h1 style="float:right; margin-right:10px; margin-top:6px; color:#3C8707; font-size:14px;">Questions? 1-800-425-1169</h1>
+</div>
+
+
+		<p>
+		
+		<font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#FF0000"><b><center>You must be logged in OR create an account to continue<br>(Click on link below to create an account)</center></b></font> 
+		
+		</p>
+		<table cellpadding="2" cellspacing="0" border="0">
+		<form name="Login" method="post" action="account_login.asp">
+
+		<tr> 
+		<td class="mainText"><strong>Username:</strong></td>
+		<td> 
+		<input name="loginUsername" type="text" value="" size="25" maxlength="55">
+		</td>
+		</tr>
+		<tr> 
+		<td class="mainText"><strong>Password:</strong></td>
+		<td> 
+		<input name="loginPassword" type="password" size="15" maxlength="55">
+
+		</td>
+		</tr>
+		<tr>
+		  <td colspan="2">Note: Username and password are CASE sensitive. </td>
+		  </tr>
+		<tr>
+		<td colspan="2"> 
+		<input type="hidden" name="redir" value="account_home.asp">
+		<input type="hidden" name="Action" value="Login">
+
+		<input type="submit" name="Submit" value="Login">		</td>
+		</tr>
+		</form>
+		</table>
+<p>&nbsp;</p>
+<h2>Create Account &amp; Lost Password</h2>
+
+<ul>
+	<li><a href="account_new.asp?redir=account%5Fhome%2Easp">Create a New Account</a></li>
+
+	<li><a href="account_lost_password.asp?redir=account%5Fhome%2Easp">Retreive a Lost Password or Lost Username</a></a></li>
+</ul>
+
+</div>
+
+
+<p>
+  </td></tr></table></td></tr></table><table align="center" width="760"><tr><td><div id="footer" align="center"><br><a href="http://www.zip-codes.com" class="footer">Home</a> //<a href="/contact.asp" class="footer">Contact Us</a> //<a href="/about.asp" class="footer">About Us</a> // <a href="/free-zip-code-tools.asp" class="footer">Free ZIP Code Tools</a> // <a href="/free-zip-code-database.asp" class="footer">Free ZIP Code Database</a> // <a href="/free-store-locator.asp" class="footer">Free Store Locator</a> // <a href="/zip-code-historical-database.asp" class="footer">Historical Data</a> // <a href="/cart_view.asp" class="footer">View Cart</a> // <a href="/search.asp" class="footer">Zip Code Finder</a> // <a href="/privacy-policy.asp" class="footer">Privacy Policy</a> // <a href="/site_map.asp" class="footer">Site Map</a> // <a href="/zip_code_directory.asp" class="footer">FAQ's</a>// <a href="/tos_database.asp" class="footer">TOS Database</a> // <a href="/tos_redistributable.asp" class="footer">TOS Redistributable</a> // <a href="/tos_maps.asp" class="footer">TOS Maps</a> // <a href="/digital-state-zip-code-maps.asp" class="footer">State Maps</a> // <a href="/zip-code-radius-map.asp" class="footer">Custom ZIP Code Radius Maps</a> // <a href="/zip_codes_history.asp" class="footer">United States Zip Codes History</a> // <a href="/canadian-postal-code-database.asp" class="footer">Canadian Postal Code Database</a> // <a href="/mexican-postal-code-database.asp" class="footer">Mexican Postal Code Database</a> //<a href="/united_states_zip_codes_timeline.asp" class="footer">United States Postal Service &amp; Zip Codes Timeline</a> // <a href="/zip_codes_automation.asp" class="footer">Zip Codes &amp; Automation of the United States Postal Service</a> // <a href="/mr_zip.asp" class="footer">The Two Mr. Zip Codes</a><hr size="1" width="60%"><span style="color:#FF9933;"><b>Copyright © 2003-2012 Zip-Codes.com. All rights reserved. Datasheer, L.L.C.</b></span></div></td></tr></table>
+
+<!--<div style="padding:10px" align="center">
+	<script type="text/javascript"><!--
+	google_ad_client = "ca-pub-6449469715038723";
+	/* ZIP Code Site Footer */
+	google_ad_slot = "9082947910";
+	google_ad_width = 728;
+	google_ad_height = 90;
+	//->
+	</script>
+	<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div>-->
+      
+</p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Philly05 
+[z2t_Subscription_read]
+[z2t_LookupAddons_hasAddon]
+
+Philly01
+[z2t_Subscription_write]
+
+
+Files Changed Uptill Now
+
+z2t_backoffice/subscription/popups/includes/z2t_Connection.asp
+z2t_backoffice/subscription/popups/z2t_subscriptions_edit.asp
+z2t_backoffice/subscription/popups/z2t_subscriptions_post.asp

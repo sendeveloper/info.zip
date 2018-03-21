@@ -1,0 +1,63 @@
+em {font-style: italic;}
+
+.center {display: inline-block; width: auto; text-align: center; margin-left: auto; margin-right: auto;}
+div.vcentering {display: table;}
+.article {display: block; min-width: 85%; max-width: 100%;}
+.resultset {width: auto; margin: 1.5em; empty-cells: show; border-collapse: collapse; background-color: white;}
+.resultset th {color: black; font-weight: bold; padding-right: 1.5em; text-align: left;}
+.resultset thead tr:first-child {border-bottom: 1px solid black;}
+.resultset td {font-size: 2em;}
+.resultset tfoot {margin-top: 1em;}
+
+/*
+table.resultset {width: 100%;}
+table {width: 100%; empty-cells: show; border-collapse: collapse;}
+th, td {text-align: left; border: 1px solid blue; overflow: hidden;}
+tr {width: 100%;}
+*/
+
+.h2 {font-size: 14pt; font-weight: bold; color: black; line-height: 150%; margin: 0em; margin-left: 2em;}
+.footer {display: inline-block; width: auto;}
+.footer .box {border: 1px solid black; width: 350px; height: auto; margin-left: auto; margin-right: auto;}
+
+body {
+        text-align: left; 
+        /*    width: auto !important; */
+        width: 1050px;
+        margin-top: 0em;
+        margin-right: auto;
+        margin-bottom: 0em;
+        margin-left: auto;
+        /*color: #000000;*/
+        background: black url(../images/background.jpg) no-repeat center top fixed !important;
+        background-size: 100% 100% !important;
+        /*    min-width: 0px !important;    Make sure the background isn't cropped when you scroll right */
+        /*    max-width: auto !important; */}
+
+div.top {text-align: left;}
+form {background-color: #c0c0c0; margin: 1em; display: inline-block;}
+fieldset {margin: .5em; white-space: nowrap; text-align: left;}
+fieldset label {text-align: right; width: 8em; margin-left: auto; margin-right: 2em; display: inline-block;}
+input, select {display: inline-block; margin-right: 1.5em; text-align: left; width: 10em; margin-right: auto; margin-left: 0em;}
+input, input.field {width: 18em;}
+select {width: 18em;}
+select.yesno {width: 4em;}
+input.number {text-align: right; width: 5em;}
+input.date {width: 8em;}
+input.button {width: auto; margin: 1em;}
+#compare {margin-left: 15em;}
+option.disabled {opacity: 20; color: #c0c0c0}
+button.disabled {opacity: 20; color: #c0c0c0; background-color: #202020;}
+span.message {}
+span.error {font-weight: bold; color: red;}
+div.status-message {text-align: center; margin: 2em; font-size: 2em;}
+
+div.date {display: inline-block; vertical-align: top; margin: 1em;}
+div.date span#current-date {font-size: 2em;}
+
+div.summary {margin-left: 2em;}
+div.summary-results {text-align: left; padding: .1px; display: table-cell;}
+div.legend {text-align: center; margin-left: 3em; padding: .1px; display: table-cell; width: auto; vertical-align: middle;}
+span#dir1 {color: green; font-weight: bold; font-size: 2em; margin-bottom: 1em; display: block;}
+span#dir2 {color: darkred; font-weight: bold; font-size: 2em; margin-top: 1em; display: block;}
+

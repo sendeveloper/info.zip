@@ -1,0 +1,107 @@
+<html><body>
+<table border="1">
+<tr>
+<th nowrap>z2t_ID</th>
+<th nowrap>ZipCode</th>
+<th nowrap>SalesTaxRate</th>
+<th nowrap>Jurisdiction</th>
+<th nowrap>ReportingCode</th>
+<th nowrap>City</th>
+<th nowrap>PostOffice</th>
+<th nowrap>State</th>
+<th nowrap>County</th>
+<th nowrap>ShippingTaxable</th>
+<th nowrap>PrimaryRecord</th>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">00501</td>
+<td align="right">8.625</td>
+<td align="right">County of Suffolk</td>
+<td align="right">SU 4711</td>
+<td align="right">Holtsville</td>
+<td align="right">Holtsville</td>
+<td align="right">NY</td>
+<td align="right">Suffolk</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">270666</td>
+<td align="right">00501</td>
+<td align="right">8.625</td>
+<td align="right">County of Suffolk</td>
+<td align="right">SU 4711</td>
+<td align="right">Internal Revenue Service</td>
+<td align="right">Holtsville</td>
+<td align="right">NY</td>
+<td align="right">Suffolk</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">00544</td>
+<td align="right">8.625</td>
+<td align="right">County of Suffolk</td>
+<td align="right">SU 4711</td>
+<td align="right">Holtsville</td>
+<td align="right">Holtsville</td>
+<td align="right">NY</td>
+<td align="right">Suffolk</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">270667</td>
+<td align="right">00544</td>
+<td align="right">8.625</td>
+<td align="right">County of Suffolk</td>
+<td align="right">SU 4711</td>
+<td align="right">Internal Revenue Service</td>
+<td align="right">Holtsville</td>
+<td align="right">NY</td>
+<td align="right">Suffolk</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td align="right">11635</td>
+<td align="right">06390</td>
+<td align="right">8.625</td>
+<td align="right">County of Suffolk</td>
+<td align="right">SU 4711</td>
+<td align="right">Fishers Island</td>
+<td align="right">Fishers Island</td>
+<td align="right">NY</td>
+<td align="right">Suffolk</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">14198</td>
+<td align="right">10001</td>
+<td align="right">8.875</td>
+<td align="right">New York City</td>
+<td align="right">NE 8081</td>
+<td align="right">New York</td>
+<td align="right">New York</td>
+<td align="right">NY</td>
+<td align="right">New York</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="right">270713</td>
+<td align="right">10001</td>
+<td align="right">8.875</td>
+<td align="right">New York City</td>
+<td align="right">NE 8081</td>
+<td align="right">GPO</td>
+<td align="right">Gpo</td>
+<td align="right">NY</td>
+<td align="right">New York</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+</table></body></html>
