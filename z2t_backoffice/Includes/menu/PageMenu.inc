@@ -61,14 +61,9 @@
 
     <!--3rd drop down menu - Research-->
     <div id="dropmenuResearch" class="dropmenudiv_a" style="width: 250px;">
-      <!--
-	  <a href="<%=strBasePath%>z2t_StateList.asp">State Worksheet</a>
-	  <a href="<%=strBasePath%>z2t_Changes.asp">Monthly Changes</a>
-	  <a href="<%=strBasePath%>z2t_ResearchChanges.asp">Proposed Changes</a>
-	  <a href="<%=strBasePath%>z2t_ResearchCurrentActivityNotes.asp">Current Activity Notes</a>
-      -->
       <a href="<%=strPathResearch%>StateInformation/z2t_StateInformation.asp">State Information</a>
 	  <a href="<%=strPathResearch%>z2t_SpecialRules.asp">Special Rules</a>
+      <a href="<%=strPathResearch%>StateChangeSummary/z2t_StateChangeSummary.asp">State Change Summary</a>
       <a href="<%=strPathResearch%>StatePhoneNumbers/z2t_StatePhoneNumbers.asp">State Phone Numbers</a>
       <a href="<%=strPathResearch%>z2t_TableDiff.asp?newdate=<%=dateadd("m", +1, Date())%>&olddate=<%=Date()%>&format=FullBreakout&state=US&taxtype=1">Table Differences</a>
       <a href="<%=strPathResearch%>z2t_IntegrityChecks.asp">Integrity Checks</a>

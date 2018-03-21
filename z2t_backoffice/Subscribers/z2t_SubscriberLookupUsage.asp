@@ -63,6 +63,8 @@
 	Else
 		strPage = Request("page")
 	End If
+	
+	HarvestURL="http://crm.harvestamerican.info/Accounts/crm_AccountView/crm_AccountView.asp"
 %>
 
 	<!--#include virtual='z2t_Backoffice/includes/DBConstants.inc'-->
@@ -443,7 +445,9 @@
                           <%=objRS("UserLogin")%>
                         </td>
                         <td width="8%" align="center">
-                          <a href="http://www.number-it.com/Home/BackOffice/boAccountView.asp?ID=<%=objRS("HarvestID")%>"><%=objRS("HarvestID")%></a>
+                          <a href="<%=HarvestURL%>?ID=<%=objRS("HarvestID")%>"
+							target="_new" title="Click to view account information in a new page">
+							<%=objRS("HarvestID")%></a>
                         </td>
                         <td width="25%" style="padding-left: 10px;">
                           <%=objRS("ClientName")%>
@@ -482,7 +486,15 @@
                           </table>
                         </td>
                         <td width="13%" align="right" style="padding-right: 10px;">
-                          <%=FormatDateTime(objRS("LastActivityDate"),2)%>
+<%
+						  laDate = objRS("LastActivityDate")
+						  If IsDate(laDate) Then 
+						    laDate = FormatDateTime(laDate,2)
+						  Else
+						    laDate = ""
+						  End If
+						  Response.Write(laDate)
+%>
                         </td>
                       </tr>
                 <%

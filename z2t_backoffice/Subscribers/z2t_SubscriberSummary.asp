@@ -35,15 +35,15 @@
                 gtTotal = 0
 
                 strSQL = "z2t_Account_summary"
-                rs.open strSQL, connAdmin, 3, 3, 4
+                'rs.open strSQL, connAdmin, 3, 3, 4
+                rs.open strSQL, connWebBackoffice, 3, 3, 4
 
                 If Not rs.EOF Then
               %>
               <table width="450" border="0" cellspacing="2" cellpadding="2" style="float: left; margin-left: 2.5em; margin-right: 5em">
                 <tr>
-                  <td>
-                    <br /><br />
-                    <h4>Subscribers (Pulled from Orders)</h4>
+                  <td colspan="4">
+                    <h4>Subscribers (Pulled from Subscriptions)</h4>
                   </td>
                 </tr>
                 <tr bgcolor="#990000">
@@ -113,15 +113,16 @@
                 End If
 
                 Dim rs, strSQL: Set rs = Server.CreateObject("ADODB.Recordset")
-                strSQL = "z2t_Account_summary_tables"
-                rs.Open strSQL, connAdmin, 3, 3, 4
+                'strSQL = "z2t_Account_summary_tables"
+				strSQL = "SELECT * FROM z2t_TableCustomersCount"
+                'rs.Open strSQL, connAdmin, 3, 3, 4
+                rs.Open strSQL, connWebBackoffice
 
                 If not rs.EOF Then
               %>
               <table width="450" border="0" cellspacing="2" cellpadding="2" style="float: right; margin-right: 2.5em">
                 <tr colspan="4">
                   <td>
-                    <br /><br />
                     <h4>Table Sales (Pulled from Orders)</h4>
                   </td>
                 </tr>
@@ -190,6 +191,7 @@
                   </td>
                 </tr>
               </table>
+			  
               <%
                 End If
 
@@ -197,7 +199,7 @@
                 gtCustomers = 0
 
                 strSQL = "z2t_Account_summary_tables_updates"
-                rs.open strSQL, connAdmin, 3, 3, 4
+                rs.open strSQL, connWebBackoffice, 3, 3, 4
 
                 gtTables = 0
                 gtUpdates = 0
@@ -212,7 +214,7 @@
                 <tr>
                   <td colspan="4">
                     <br /><br />
-                    <h4>Table Update Prospects (Pulled from Zip2Tax Products)</h4>
+                    <h4>Table Update Prospects (Pulled from Subscriptions)</h4>
                   </td>
                 </tr>
                 <tr bgcolor="#99000">

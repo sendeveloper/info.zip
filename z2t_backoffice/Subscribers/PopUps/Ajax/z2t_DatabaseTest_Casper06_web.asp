@@ -7,12 +7,12 @@
 
     dim conn
     set conn=server.CreateObject("ADODB.Connection")
-	'conn.open "FILEDSN=C:\Inetpub\DSN\Casper06SQLServerTableDistribution.DSN"
-    'conn.Open "Provider=SQLNCLI11;server=Casper06.HarvestAmerican.net,7643;uid=davewj2o;pwd=get2it;database=z2t_WebPublic"
-	conn.Open "DRIVER=ODBC Driver 11 for SQL Server;server=Casper06.HarvestAmerican.net,7643;uid=davewj2o;pwd=get2it;database=z2t_WebPublic"
-    set rs=server.createObject("ADODB.Recordset")
+	conn.open "FILEDSN=C:\Inetpub\DSN\Casper06SQLServerTableDistribution.DSN"
+    'conn.open "FILEDSN=C:\Inetpub\DSN\Frank02SQLServerTableDistribution.DSN"
+	'conn.open "FILEDSN=C:\Inetpub\DSN\Philly03SQLServerTableDistribution.DSN"
+	set rs=server.createObject("ADODB.Recordset")
 
-	SQL =  "z2t_LookUp_v25('" & Request("zip") & "', '', '" & Request("usr") & "','', '', '', 0)"
+	SQL =  "z2t_WebPublic.dbo.z2t_LookUp_v25('" & Request("zip") & "', '', '" & Request("usr") & "','', '', '', 0)"
 
     rs.open SQL, conn, 3, 3, 4
 

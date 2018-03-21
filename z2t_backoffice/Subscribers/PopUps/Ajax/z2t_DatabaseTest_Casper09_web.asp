@@ -8,10 +8,11 @@
 
     dim conn
     set conn=server.CreateObject("ADODB.Connection")
-    conn.Open "driver=SQL Server;server=Casper09.HarvestAmerican.net,7943;uid=davewj2o;pwd=get2it;database=z2t_WebPublic"
+	conn.open "FILEDSN=C:\Inetpub\DSN\Casper09SQLServerTableDistribution.DSN"
+    'conn.Open "driver=SQL Server;server=Casper09.HarvestAmerican.net,7943;uid=davewj2o;pwd=get2it;database=z2t_WebPublic"
     set rs=server.createObject("ADODB.Recordset")
 
-	SQL =  "z2t_LookUp_v25('" & Request("zip") & "', '', '" & Request("usr") & "','', '', '', 0)"
+	SQL =  "z2t_WebPublic.dbo.z2t_LookUp_v25('" & Request("zip") & "', '', '" & Request("usr") & "','', '', '', 0)"
 
     rs.open SQL, conn, 3, 3, 4
 

@@ -9,7 +9,6 @@
 		RequestZip = Request("zip")
 	End If
     
-	'AjaxLoadingGif = "'https://info.zip2tax.com/z2t_backoffice/images/AjaxLoading.gif' alt='Loading'"
 	AjaxLoadingGif = "'https://info.zip2tax.com/z2t_backoffice/subscribers/popups/includes/Loading.gif' alt='Loading'"
 
 	PathURL = "https://info.zip2tax.com/z2t_Backoffice/subscribers/popups/Ajax/"
@@ -78,6 +77,16 @@
   </style>
 
   <script type="text/javascript">
+  
+    var ServerID = 0;
+    var nextServer = 0;
+    var ajaxURL = ['', 
+						'<%=AjaxURL(1)%>', '<%=AjaxURL(2)%>', '<%=AjaxURL(3)%>', '<%=AjaxURL(4)%>', '<%=AjaxURL(5)%>', 
+						'<%=AjaxURL(6)%>', '<%=AjaxURL(7)%>', '<%=AjaxURL(8)%>', '<%=AjaxURL(9)%>', '<%=AjaxURL(10)%>', 
+						'<%=AjaxURL(11)%>',  '<%=AjaxURL(12)%>', '<%=AjaxURL(13)%>', '<%=AjaxURL(14)%>'];
+    var serverSequence = [12, 10, 1, 9, 2, 13, 3, 5, 6, 7,8, 14, 4, 11];
+
+	
     function linkToError(title, message) {
       return function showError(e) {
         var parent = e.parentNode
@@ -155,14 +164,14 @@
         http.get = function xhrGet(/*optional*/ asynchronous) {
           http.open("GET", url, undef(asynchronous, true));
           //http.onabort = timeoutfn;
-          http.timer = setTimeout(function(){http.abort(); timeoutfn();}, timeout ? timeout : 5000);
+          http.timer = setTimeout(function(){http.abort(); timeoutfn();}, timeout ? timeout : 8000);
         http.send()
         return http;};
     
         http.post = function xhrPost(params, /*optional*/ asynchronous) {
         http.open("POST", url, undef(asynchronous, true));
           //http.abort = timeoutfn;
-        http.timer = setTimeout(function(){http.abort(); timeoutfn();}, timeout ? timeout : 5000);
+        http.timer = setTimeout(function(){http.abort(); timeoutfn();}, timeout ? timeout : 8000);
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.setRequestHeader("Content-length", params.length);
         http.setRequestHeader("Connection", "close");
@@ -178,26 +187,9 @@
       // -- end of "make XHR / AJAX easy"
 
 
-    var ServerID = 0;
-	// =AjaxURL(15)%>', 'AjaxURL(17)%>', frank 03 URLs
-	/*
-    var ajaxURL = ['', 
-						'<%=AjaxURL(3)%>', '<%=AjaxURL(5)%>', '<%=AjaxURL(6)%>', '<%=AjaxURL(7)%>', '<%=AjaxURL(8)%>', 
-						'<%=AjaxURL(9)%>', '<%=AjaxURL(10)%>','<%=AjaxURL(11)%>', '<%=AjaxURL(12)%>', '<%=AjaxURL(13)%>', 
-						'<%=AjaxURL(14)%>',  '<%=AjaxURL(1)%>', '<%=AjaxURL(2)%>', '<%=AjaxURL(4)%>'];
-	*/
-    var ajaxURL = ['', 
-						'<%=AjaxURL(1)%>', '<%=AjaxURL(2)%>', '<%=AjaxURL(3)%>', '<%=AjaxURL(4)%>', '<%=AjaxURL(5)%>', 
-						'<%=AjaxURL(6)%>', '<%=AjaxURL(7)%>', '<%=AjaxURL(8)%>', '<%=AjaxURL(9)%>', '<%=AjaxURL(10)%>', 
-						'<%=AjaxURL(11)%>',  '<%=AjaxURL(12)%>', '<%=AjaxURL(13)%>', '<%=AjaxURL(14)%>'];
-//Frank 03 sequence						17,15,
-    var serverSequence = [12, 10, 1, 9, 2, 13, 3, 5, 6, 7,8, 14, 4, 11];
-    var nextServer = 0
-
-
     function formLoad()
         {
-        SetScreen(1300, 980);
+        SetScreen(1300, 1050);
         runTest();
         }
 
@@ -244,7 +236,7 @@
 						clearTimeout(timer);
 						linkToError("ajax timeout", "Timed out with no response.")(document.querySelectorAll("#city" + place)[0].firstChild);
 						}
-//	 alert(ajaxURL[ServerID]);
+
 					var http = xhr(ajaxURL[ServerID], successFn, errorFn, 5000, timeoutFn);
 					errorFn.timer = http.timer;
 					successFn = http.timer;
@@ -278,8 +270,6 @@
 			element.innerHTML = r.querySelectorAll(tag ? tag : key)[0].firstChild ? r.querySelectorAll(tag ? tag : key)[0].firstChild.nodeValue : "";
 			}
 			
-		//[["zip"], ["rate"], ["city"], ["county"], ["state"], ["shipping", "shippingtaxable"]]
-
 		[["zip"], ["rate"], ["city"], ["county"], ["state"], ["shipping", "shippingtaxable"], ["server"]]
 		.forEach(function(e) {set.apply(null, e);});
 		

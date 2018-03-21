@@ -2,7 +2,7 @@
 
     dim objcon
     set objcon=server.CreateObject("ADODB.Connection")
-    objcon.Open "driver=SQL Server;server=66.119.50.228,7843;uid=davewj2o;pwd=get2it;database=ha_prod"
+    objcon.Open "driver=SQL Server;server=66.119.50.228,7843;uid=davewj2o;pwd=get2it;database=ha_CRM"  'Casper08
 
     set rs=server.createObject("ADODB.Recordset")
 

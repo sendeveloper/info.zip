@@ -181,9 +181,11 @@ ReturnPage = "http://info.zip2tax.com/z2t_Backoffice/home/z2t_Home.asp"
 						</td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
-					<tr><td colspan="2" style="font-size: 10pt; color: white;">
-						This is your administrator's account set in the Number-it Backoffice under a Zip2Tax Subscription
-					</td></tr>
+					<tr>
+						<td colspan="2" style="font-size: 10pt; color: white;" align="center">
+							This is your administrator's account set in the CRM under a Zip2Tax Subscription
+						</td>
+					</tr>
 					<tr><td>&nbsp;</td></tr>
 
 				</table>

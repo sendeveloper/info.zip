@@ -19,6 +19,8 @@
   Else
     currentPage = Request("Page") + 1 ' convert Page request to an integer
   End If
+  
+	HarvestURL="http://crm.harvestamerican.info/Accounts/crm_AccountView/crm_AccountView.asp"
 %>
 <html>
 <head>
@@ -42,96 +44,101 @@
     </style>
 </head>
 <body>
-  <!--#include virtual="z2t_Backoffice/includes/BodyParts/header.inc"-->              
-  <%
-                Dim rs, strSQL, conn
-                set rs = server.createObject("ADODB.Recordset")
-                Set conn = Server.CreateObject("ADODB.Connection")
-                conn.Open "driver=SQL Server; server=localhost; uid=davewj2o; pwd=get2it; database=z2t_Backoffice"
-                strSQL = "SELECT [Description] FROM z2t_Types_repl WHERE [Class] = 'z2tLoginStatus' AND [Value] = '" & Request("Status") & "'"
-                rs.open strSQL, connPublic, 1, 2
+  <!--#include virtual="z2t_Backoffice/includes/BodyParts/header.inc"-->  
+  
+<%
+	Dim rs, strSQL, conn
+	set rs = server.createObject("ADODB.Recordset")
+	Set conn = Server.CreateObject("ADODB.Connection")
+	conn.Open "driver=SQL Server; server=localhost; uid=davewj2o; pwd=get2it; database=z2t_Backoffice"
+	
+	strSQL = "z2t_Types_read('z2tLoginStatus','" & Request("Status") & "')"
+	rs.open strSQL, connWebBackoffice, 3, 3, 4
 
-                if not rs.eof then
-                desc = rs("Description")
-                end if
-                rs.close
+	If not rs.eof then
+		subHeading = rs("Description")
+	Else
+		subHeading = "(No Entry)"
+	End If
+    rs.close
 
-                if Request("Status") = "(no entry)" then
-                desc = "(no entry)"
-                end if
+	'If Request("Category") = "0" Then
+	'	subHeading = "Customers Who Purchased A Single State Table"
+	'Else
+	'	subHeading = "Customers Who Purchased The U.S. Table"
+	'End If
+%>
 
-                If Request("Category") = "0" Then
-                  subHeading = "Customers Who Purchased A Single State Table"
-                Else
-                  subHeading = "Customers Who Purchased The U.S. Table"
-                End If
-              %>
-              <table style="width: 80%; padding: 0" border="0" cellspacing="5" align="center">
+              <table style="width: 100%; padding: 0" border="0" cellspacing="5" align="center">
                 <tr>
                   <th style="color: black; font-weight: bold; font-size: 18px;" colspan="3">
-                    <br /><br /><%=subHeading%>
+                    <%=subHeading%>
                   </th>
                 </tr>
                 <tr>
-                  <td width="30%">&nbsp;
-                    
-                  </td>
-                  <td width="40%">&nbsp;
-                    
-                  </td>
-                  <td width="30%" align="right" style="color: black; font-weight: bold; font-size: 14px;">Order By:   <%
-				   
-                         						
-		              select case Request("Status")
-		              case "update"
-                    %>
+                  <td width="100%" align="right" style="color: black; font-weight: bold; font-size: 14px;">
+					Order By: <%=OrderBy%>
+				  </td>
+				</tr>
+			  </table>
+<%				                          						
+	Select Case Request("Status")
+	Case "update"
+%>
+
                     <!--Monthly Tax Table Update Layout-->
-                    <table width="80%" border="0" cellspacing="1" cellpadding="3" align="center">
+                    <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                       <tr bgcolor="#990000">
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Zip2Tax%20ID&Page=<%=currentPage%>" class="white">Zip2Tax ID</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Zip2Tax%20ID&Page=0" class="white">Zip2Tax ID</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Harvest%20ID&Page=<%=currentPage%>" class="white">Harvest ID</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Harvest%20ID&Page=0" class="white">Harvest ID</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Company&Page=<%=currentPage%>" class="white">Company</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Company&Page=0" class="white">Company</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Email&Page=<%=currentPage%>" class="white">E-mail Updates To</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Email&Page=0" class="white">E-mail Updates To</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=State%20List&Page=<%=currentPage%>" class="white">State List</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=State%20List&Page=0" class="white">State List</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Table%20Type&Page=<%=currentPage%>" class="white">Table Type</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Table%20Type&Page=0" class="white">Table Type</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=NY%20Clothing&Page=<%=currentPage%>" class="white">NY Clothing</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=NY%20Clothing&Page=0" class="white">NY Clothing</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Notes&Page=<%=currentPage%>" class="white">Notes</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Notes&Page=0" class="white">Notes</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Expiration%20Date&Page=<%=currentPage%>" class="white">Expiration Date</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Expiration%20Date&Page=0" class="white">Expiration Date</a>
                         </th>
                         <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Auto%20Renew&Page=<%=currentPage%>" class="white">Auto Renew</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Auto%20Renew&Page=0" class="white">Auto Renew</a>
                          
                         </th>
                       </tr>
-                      <%
+					  
+<%
                         Dim recordsPerPage, numOfPages, currentPage, count, rsCount
 
                         recordsPerPage = 20
 
                         If Request("Category") <> "" Then
-                        query = "&Category=" & Request("Category")
+							query = "&Category=" & Request("Category")
                         End If
 
                         If Request("Status") <> "" Then
-                        query = query & "&Status=" & Request("Status")
+							query = query & "&Status=" & Request("Status")
                         End If
+						
+                        If OrderBy <> "" Then
+							query = query & "&OrderBy=" & OrderBy
+                        End If
+						
                         linecount = 0
   
                         strSQL="z2t_BackOffice.dbo.z2t_Account_list('" & request("Status") & "', " & request("Category") & ", '" & OrderBy & "')"
@@ -156,13 +163,14 @@
                             else
                             bgcolor = "#FFFFFF"
                             end if
-                      %>
+%>
+
                       <tr bgcolor="<%=bgColor%>">
                         <td width='50' align='center'>
                         <%=rs("z2t_ID")%>
                         </td>
                         <td width='75' align='center'>
-                        <a href="http://crm.harvestamerican.info/Accounts/crm_AccountView/crm_AccountView.asp?ID=<%=rs("ha_ID")%>"
+                        <a href="<%=HarvestURL%>?ID=<%=rs("ha_ID")%>"
                         target="_new" title="Click to view account information in a new window">
                         <%=rs("ha_ID")%></a>
                         </td>
@@ -234,35 +242,35 @@
                         </tr>
                     </table>
                     <!--End Monthly Tax Table Update Layout-->
-                      <%
-		                case "link"
-                      %>
+<%
+	Case "link"
+%>
                       <!--Database Link Layout-->
-                      <table width="80%" border="0" cellspacing="1" cellpadding="3" align="center">
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                         <tr bgcolor='#990000'>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Zip2Tax%20ID&Page=<%=currentPage%>" class="white">Zip2Tax ID</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Zip2Tax%20ID&Page=0" class="white">Zip2Tax ID</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Harvest%20ID&Page=<%=currentPage%>" class="white">Harvest ID</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Harvest%20ID&Page=0" class="white">Harvest ID</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Customer&Page=<%=currentPage%>" class="white">Customer</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Customer&Page=0" class="white">Customer</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Company&Page=<%=currentPage%>" class="white">Company</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Company&Page=0" class="white">Company</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Stored%20Procedure&Page=<%=currentPage%>" class="white">Stored Procedure</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Stored%20Procedure&Page=0" class="white">Stored Procedure</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Notes&Page=<%=currentPage%>" class="white">Notes</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Notes&Page=0" class="white">Notes</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Expiration%20Date&Page=<%=currentPage%>" class="white">Expiration Date</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Expiration%20Date&Page=0" class="white">Expiration Date</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Auto%20Renew&Page=<%=currentPage%>" class="white">Auto Renew</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Auto%20Renew&Page=0" class="white">Auto Renew</a>
                           </th>
                         </tr>
                       <%
@@ -277,6 +285,11 @@
                         If Request("Status") <> "" Then
                         query = query & "&Status=" & Request("Status")
                         End If
+						
+                        If OrderBy <> "" Then
+							query = query & "&OrderBy=" & OrderBy
+                        End If
+						
                         linecount = 0
   
                         strSQL="z2t_Account_list('" & request("Status") & "', " & request("Category") & ", '" & OrderBy & "')"
@@ -304,7 +317,7 @@
                         %>
                         <tr bgcolor="<%=bgColor%>">
                           <td width='75' align='center'><%=rs("z2t_ID")%></td>
-                          <td width='75' align='center'><a href="http://crm.harvestamerican.info/Accounts/crm_AccountView/crm_AccountView.asp?ID=<%=rs("ha_ID")%>" target="_new" title="Click to view account information in a new window"><%=rs("ha_ID")%></a></td>
+                          <td width='75' align='center'><a href="<%=HarvestURL%>?ID=<%=rs("ha_ID")%>" target="_new" title="Click to view account information in a new window"><%=rs("ha_ID")%></a></td>
                           <td width='150' align='left'><%=rs("Customer")%></td>
                           <td width='250' align='left'><%=rs("Company")%></td>
                           <td width='175' align='left'><%=rs("StoredProcedure")%></td>
@@ -327,38 +340,39 @@
                         </tr>
                       </table>
                       <!--End Database Link Layout-->
-                      <%
-		                case else
-                      %>
+<%
+	case else
+%>
+
                       <!--Web Lookup Layout-->
-                      <table width="80%" border="0" cellspacing="1" cellpadding="3" align="center">
+                      <table width="100%" border="0" cellspacing="1" cellpadding="3" align="center">
                         <tr bgcolor='#990000'>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Zip2Tax%20ID&Page=<%=currentPage%>" class="white">Zip2Tax ID</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Zip2Tax%20ID&Page=0" class="white">Zip2Tax ID</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Harvest%20ID&Page=<%=currentPage%>" class="white">Harvest ID</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Harvest%20ID&Page=0" class="white">Harvest ID</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Customer&Page=<%=currentPage%>" class="white">Customer</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Customer&Page=0" class="white">Customer</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Company&Page=<%=currentPage%>" class="white">Company</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Company&Page=0" class="white">Company</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Login&Page=<%=currentPage%>" class="white">Login</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Login&Page=0" class="white">Login</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Password&Page=<%=currentPage%>" class="white">Password</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Password&Page=0" class="white">Password</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Notes&Page=<%=currentPage%>" class="white">Notes</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Notes&Page=0" class="white">Notes</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Expiration%20Date&Page=<%=currentPage%>" class="white">Expiration Date</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Expiration%20Date&Page=0" class="white">Expiration Date</a>
                           </th>
                           <th>
-                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Auto%20Renew&Page=<%=currentPage%>" class="white">Auto Renew</a>
+                          <a href="z2t_CustomerList.asp?Status=<%=Request("Status")%>&Category=<%=Request("Category")%>&OrderBy=Auto%20Renew&Page=0" class="white">Auto Renew</a>
                           </th>
                         </tr>
                       <%
@@ -374,14 +388,21 @@
                         If Request("Status") <> "" Then
                         query = query & "&Status=" & Request("Status")
                         End If
+						
+                        If OrderBy <> "" Then
+							query = query & "&OrderBy=" & OrderBy
+                        End If
+
                         linecount = 0
   
-                        strSQL="z2t_Account_list('" & request("Status") & "', " & request("Category") & ", '" & OrderBy & "')"
+
+						Set rs=server.createObject("ADODB.Recordset")
+						strSQL="z2t_Account_list('" & request("Status") & "', " & request("Category") & ", '" & OrderBy & "')"
+						'response.write strSQL & "|<br>"
                         rs.CursorType = 3
                         rs.CursorLocation = 3 ' adUseClient
                         rs.LockType = 3						
-                        rs.open strSQL, connPublic
-                        'rs.open strSQL, connAdmin
+                        rs.open strSQL, connWebBackoffice
         
                         rs.PageSize = recordsPerPage
                         rsCount = rs.RecordCount
@@ -400,7 +421,7 @@
                         %>
                         <tr bgcolor="<%=bgColor%>">
                           <td width='75' align='center'><%=rs("z2t_ID")%></td>
-                          <td width='75' align='center'><a href="http://crm.harvestamerican.info/Accounts/crm_AccountView/crm_AccountView.asp?ID=<%=rs("ha_ID")%>" target="_new" title="Click to view account information in a new window"><%=rs("ha_ID")%></a></td>
+                          <td width='75' align='center'><a href="<%=HarvestURL%>ID=<%=rs("ha_ID")%>" target="_new" title="Click to view account information in a new window"><%=rs("ha_ID")%></a></td>
                           <td width='150' align='left'><%=rs("Customer")%></td>
                           <td width='250' align='left'><%=rs("Company")%></td>
                           <td width='100' align='left'><%=rs("Login")%></td>
@@ -424,16 +445,18 @@
                         </tr>
                       </table>
                       <!--End Web Lookup Layout-->
-                      <%
-			            end select
-                      %>
-                  <table width="80%" border="0" cellspacing="10" cellpadding="0" align="center">
-                    <tr valign="top">
-                      <td width="100%%" align="right" style="color: black; font-weight: bold; font-size: 14px;">
-                        Count: <%=LineCount%>
-                      </td>
-                    </tr> 
-                  </table>
-  <!--#include virtual="z2t_Backoffice/includes/BodyParts/footer.inc"-->
+	<%
+	End Select
+%>
+					  
+	<table width="100%" border="0" cellspacing="10" cellpadding="0" align="center">
+		<tr valign="top">
+			<td width="100%%" align="right" style="color: black; font-weight: bold; font-size: 14px;">
+				Count: <%=LineCount%>
+			</td>
+		</tr> 
+	</table>
+				  
+    <!--#include virtual="z2t_Backoffice/includes/BodyParts/footer.inc"-->
   </body>
 </html>

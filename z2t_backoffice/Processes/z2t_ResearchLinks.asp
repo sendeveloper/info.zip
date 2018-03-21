@@ -138,7 +138,7 @@
 			<a href="http://www2.gov.bc.ca/gov/content/taxes/sales-taxes/pst" target="_blank">British Columbia - PST 7%</a><br>
 			<a href="http://www.fin.gov.on.ca/en/rates/index.html" target="_blank">Ontario Ministry of Finance - HST 13%</a><br>
 			<a href="http://www.revenuquebec.ca/en/entreprises/taxes/tpstvhtvq/reglesdebase/default.aspx" target="_blank">Revenu Quebec - QST 9.975%</a><br>
-			<a href="http://finance.gov.sk.ca/taxes/pst/" target="_blank">Government of Saskatchewan - PST 6%</a><br>
+			<a href="http://www.saskatchewan.ca/business/taxes-licensing-and-reporting/provincial-taxes-policies-and-bulletins/provincial-sales-tax" target="_blank">Government of Saskatchewan - PST 6%</a><br>
 		
 						</td>
 									  

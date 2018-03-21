@@ -9,10 +9,8 @@
     dim connPhilly01
     set connPhilly01=server.CreateObject("ADODB.Connection")
 	
-    'connPhilly01.Open "driver={MySQL ODBC 5.2 unicode Driver};Server=philly01.harvestamerican.net:3306;User=davewj2o;Password=get2it2day;Database=Zip2Tax" '--Philly01
-    'connPhilly01.Open "driver={MySQL ODBC 5.1 Driver};Server=philly01.harvestamerican.net:3306;User=davewj2o;Password=get2it2day;Database=Zip2Tax" '--Philly01
-    connPhilly01.Open "driver={MySQL ODBC 5.1 Driver};Server=philly01.harvestamerican.net;User=davewj2o;Password=get2it2day;Database=Zip2Tax" '--Philly01
-    'connPhilly01.Open "driver={MySQL ODBC 5.1 Driver};Server=208.109.189.101;User=z2t_link;Password=H^2p6~r;Database=Zip2Tax"  '--Barley2
+    'connPhilly01.Open "driver={MySQL ODBC 5.1 Driver};Server=philly01.harvestamerican.net;User=davewj2o;Password=get2it2day;Database=Zip2Tax" '--Philly01
+    connPhilly01.Open "driver={MySQL ODBC 5.1 Driver};Server=philly01.harvestamerican.net;User=root;Password=start2gosoon;Database=Zip2Tax" '--Philly01
 	
     set rs=server.createObject("ADODB.Recordset")
 

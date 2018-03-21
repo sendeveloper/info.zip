@@ -2,9 +2,9 @@
     Dim objcon: Set objcon=server.CreateObject("ADODB.Connection")
     objcon.Open "driver=SQL Server;server=66.119.50.228,7843;uid=davewj2o;pwd=get2it;database=ha_prod" ' Casper08
 
-    Dim connAdmin: Set connAdmin=server.CreateObject("ADODB.Connection")
- connAdmin.Open "driver=SQL Server; server=208.109.189.101; uid=davewj2o; pwd=get2it; database=z2t_WebBackoffice" ' barley2 commented by humair 1 sep 2016, website recovery task
-'    connAdmin.Open "driver=SQL Server; server=localhost; uid=davewj2o; pwd=get2it; database=z2t_Backoffice" 
+    'Dim connAdmin: Set connAdmin=server.CreateObject("ADODB.Connection")
+	'connAdmin.Open "driver=SQL Server; server=208.109.189.101; uid=davewj2o; pwd=get2it; database=z2t_WebBackoffice" ' barley2 commented by humair 1 sep 2016, website recovery task
+    'connAdmin.Open "driver=SQL Server; server=localhost; uid=davewj2o; pwd=get2it; database=z2t_Backoffice" 
 
     Dim connPublic: Set connPublic=server.CreateObject("ADODB.Connection")
     connPublic.Open "driver=SQL Server; server=localhost; uid=davewj2o; pwd=get2it; database=z2t_WebPublic" ' philly05
@@ -16,6 +16,9 @@
     Dim connBackoffice: Set connBackoffice=server.CreateObject("ADODB.Connection")
     connBackoffice.Open "driver=SQL Server;server=localhost;uid=davewj2o; pwd=get2it; database=z2t_BackOffice" ' philly04
 
+    Dim connWebBackoffice: Set connWebBackoffice=server.CreateObject("ADODB.Connection")
+    connWebBackoffice.Open "driver=SQL Server;server=localhost;uid=z2t_BackOffice; pwd=r6b244uu; database=z2t_WebBackOffice" ' Philly05
+	
     Dim connCasper: Set connCasper = server.CreateObject("ADODB.Connection")
     connCasper.Open "driver=SQL Server;server=66.119.50.230,7043;uid=davewj2o;pwd=get2it;database=z2t_BackOffice" ' Casper10
 	'''philly01 for write Operations
