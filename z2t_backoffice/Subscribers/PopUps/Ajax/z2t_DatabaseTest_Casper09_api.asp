@@ -47,26 +47,26 @@
   	For Each child In objHdl.childNodes
   		'Response.Write child.nodeName & " = " & child.text & "<br>"
   		Select case lcase(child.nodeName)
-  		Case "place"
-  			  city = child.text
-  		Case "zipcode"
-  			  zip = child.text
-  		Case "state"
-  			  state = child.text
-  		Case "county"
-  			  county = child.text
-  		Case "salestax"
-  			Set objRate = child.firstChild.firstChild
-  			'Response.Write objRate.nodeName & " = " & objRate.text & "<br>"
-  			  rate = objRate.text
-  		Case "notes"
-  			'Set objNote = child.firstChild.firstChild.nextSibling.nextSibling
-        Set objNote = xmlResponse.selectNodes("//address[1]//notes/noteDetail[./category[text() = 'Tax on Shipping']]/note")
-        shippingtaxable = 0
-        If Not objNote.item(0) Is Nothing Then
-          If objNote.item(0).text = "Shipping charges are taxable" Then shippingtaxable = 1
-          'shippingtaxable = objNote.item(0).text
-        End If
+    		Case "place"
+    			  city = child.text
+    		Case "zipcode"
+    			  zip = child.text
+    		Case "state"
+    			  state = child.text
+    		Case "county"
+    			  county = child.text
+    		Case "salestax"
+    			Set objRate = child.firstChild.firstChild
+    			'Response.Write objRate.nodeName & " = " & objRate.text & "<br>"
+    			  rate = objRate.text
+    		Case "notes"
+    			'Set objNote = child.firstChild.firstChild.nextSibling.nextSibling
+          Set objNote = xmlResponse.selectNodes("//address[1]//notes/noteDetail[./category[text() = 'Tax on Shipping']]/note")
+          shippingtaxable = 0
+          If Not objNote.item(0) Is Nothing Then
+            If objNote.item(0).text = "Shipping charges are taxable" Then shippingtaxable = 1
+            'shippingtaxable = objNote.item(0).text
+          End If
   		End Select
   	Next
   End If	
