@@ -335,16 +335,17 @@
             Shipping_Taxable = 0
     End If
 
-    response.write("<zip2tax.com>")
+    response.write("<zip_code_lookup>")
     response.write("<zip>" & Zip_Code & "</zip>")
     response.write("<city>" & City & "</city>")
     response.write("<county>" &County  & "</county>")
     response.write("<state>" & State & "</state>" )
     response.write("<rate>" &Rate & "</rate>")
     response.write("<shippingtaxable>" & Shipping_Taxable & "</shippingtaxable>")
+    response.write("<server>Various</server>")
     response.write("<error_code>" & Error & "</error_code>")
     response.write("<error_message>" & ErrorMessage(Error) & "</error_message>")
-    response.write("</zip2tax.com>")
+    response.write("</zip_code_lookup>")
 
     ' Start 5
     set connPhilly01=server.CreateObject("ADODB.Connection")
