@@ -1,3 +1,6 @@
+<!--#include virtual="z2t_Backoffice/subscribers/popups/Ajax/Includes/connections.asp"-->
+<!--#include virtual="z2t_Backoffice/subscribers/popups/Ajax/Includes/z2t_pinpoint_api_call_basic.asp" -->
+
 <%
     ' 12, 10, 1, 9, 2, 13, 3, 5, 6, 7,8, 14, 4, 11
     ' AjaxURL(1) AjaxURL(2)
@@ -224,6 +227,124 @@
     'Close the Database
     rs.Close
     conn.Close
+
+    ' Start 3
+    Dim ZipCode
+    Dim Password
+    Dim ApiError 'Matched to ErrorCode and ErrorMessage to match the old version
+    Dim ErrorMessage(99)
+
+    ErrorMessage(0) = "No Errors"
+    ErrorMessage(1) = "Missing Zip Code"
+    ErrorMessage(2) = "Missing Password"
+    ErrorMessage(3) = "Connection Error"
+    ErrorMessage(4) = "Zip Code Less than 5 Characters"
+    ErrorMessage(5) = "Zip Code Out of Range for Sample"
+    ErrorMessage(6) = "Incorrect Username/Password"
+    ErrorMessage(7) = "Zip Code Not Found"
+    ErrorMessage(8) = "Missing Username"
+    ErrorMessage(99) = "Error Unknown"
+
+    Error = 0
+
+    If isnull(RequestZip) Or RequestZip = "" Then
+        Error = 1
+    End If
+
+    If Error = 0 Then
+        If isnull(RequestUsr) Or RequestUsr = "" Then
+            Error = 8
+        End If
+    End If
+
+    If Error = 0 Then
+        If isnull(RequestPass) Or RequestPass = "" Then
+            Error = 2
+        End If
+    End If
+    If Error = 0 Then
+
+        Dim LookupResults    'Class instance for primary lookup results
+        Set LookupResults = New CLookupResults
+        LookupResults.ApiCall RequestUsr,RequestPass,RequestZip
+        ApiError = LookupResults.ErrorCode
+        If ApiError = 0 Then    
+            LookupResults.SetBasicLookupData()
+            Zip_Code =  RequestZip
+            City = LookupResults.DisplayCity
+            County = LookupResults.County
+            State = LookupResults.State
+            Rate = LookupResults.SalesRate
+            Shipping_Taxable = LookupResults.IsShippingTaxable
+        End If
+
+    End If
+    If ApiError = 55 Then
+            Zip_Code =  ZipCode
+            City = "Invalid Sample Zip"
+            County = "Error"
+            State = "Error"
+            Rate = 0
+            Shipping_Taxable = 0
+            Error = 0
+    End If
+
+    If ApiError = 8 Then
+            Error = 6
+            Zip_Code =  ZipCode
+            Rate = 0
+            Shipping_Taxable = 0
+    End If
+
+    If ApiError = 1 Then
+            Zip_Code =  ZipCode
+            City = "Invalid Zip"
+            County = "Error"
+            State = "Error"
+            Rate = 0
+            Shipping_Taxable = 0
+            Error = 0
+    End If
+
+    If ApiError = 113 Then
+            Zip_Code =  ZipCode
+            City = "Invalid Zip"
+            County = "Error"
+            State = "Error"
+            Rate = 0
+            Shipping_Taxable = 0
+            Error = 0
+    End If
+
+    
+    If ApiError = 100 Then
+            Zip_Code =  ZipCode
+            City = "Invalid Zip"
+            County = "Error"
+            State = "Error"
+            Rate = 0
+            Shipping_Taxable = 0
+            Error = 0
+    End If
+
+    
+    If ApiError = 3 Then
+            Error = 3
+            Zip_Code =  ZipCode
+            Rate = 0
+            Shipping_Taxable = 0
+    End If
+
+    response.write("<zip2tax.com>")
+    response.write("<zip>" & Zip_Code & "</zip>")
+    response.write("<city>" & City & "</city>")
+    response.write("<county>" &County  & "</county>")
+    response.write("<state>" & State & "</state>" )
+    response.write("<rate>" &Rate & "</rate>")
+    response.write("<shippingtaxable>" & Shipping_Taxable & "</shippingtaxable>")
+    response.write("<error_code>" & Error & "</error_code>")
+    response.write("<error_message>" & ErrorMessage(Error) & "</error_message>")
+    response.write("</zip2tax.com>")
 
     response.write("</zip_code_lookups>")
 %>
