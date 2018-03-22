@@ -376,6 +376,12 @@
     ' Start 6
     DatabaseTest_api "Philly02"
 
+    ' Start 7
+    DatabaseTest_api "Philly04"
+
+    ' Start 8
+    DatabaseTest_api "Casper06"
+
     response.write("</zip_code_lookups>")
 Function DatabaseTest_api(server_name)
     ' store link in a variable
