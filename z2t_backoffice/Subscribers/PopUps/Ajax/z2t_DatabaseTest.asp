@@ -93,6 +93,32 @@
     rs.Close
     set rs = nothing
 
+    ' Start 9
+    set conn=server.CreateObject("ADODB.Connection")
+    conn.Open "driver=SQL Server;server=208.88.49.22;uid=davewj2o;pwd=get2it;database=z2t_WebPublic"  'Philly05 Backdoor
+    set rs=server.createObject("ADODB.Recordset")
+
+    SQL =  "z2t_LookUp_v25('" & RequestZip & "', '', '" & RequestUsr & "','', '', '', 0)"
+
+    rs.open SQL, conn, 3, 3, 4
+
+    response.write("<zip_code_lookup>")
+
+    If not rs.eof then
+        response.write("<zip>" & Request("zip") & "</zip>")
+        response.write("<city>" & rs("City") & "</city>")
+        response.write("<county>" & rs("County") & "</county>")
+        response.write("<state>" & rs("State") & "</state>")
+        response.write("<rate>" & rs("Rate") & "</rate>")
+        response.write("<shippingtaxable>n/a</shippingtaxable>")
+        response.write("<server>Philly05</server>")
+    End If
+
+    response.write("</zip_code_lookup>")
+
+    rs.Close
+    set rs = nothing
+
     ' Start 2
 
     ' store link in a variable
@@ -173,6 +199,31 @@
         response.write("<server></server>")
 
     Response.Write("</zip_code_lookup>")
+
+    ' Start 13
+
+    Set conn=server.CreateObject("ADODB.Connection")
+    conn.Open "driver=SQL Server;server=philly01.harvestamerican.net,8143;uid=davewj2o;pwd=get2it;database=zip2tax"
+
+    'Open the recordset using the stored procedure
+    Set rs = server.CreateObject("ADODB.Recordset")
+    rs.open "z2t_link.z2t_lookup('" & RequestZip & "', '" & RequestUsr & "', '" & RequestPass & "')", conn, 3, 3, 4
+
+    Response.Write("<zip_code_lookup>")
+    'Read the results
+    If not rs.EOF then
+            response.write("<zip>" & rs("Zip_Code") & "</zip>")
+            response.write("<city>" & rs("Post_Office_City") & "</city>")
+            response.write("<county>" & rs("County") & "</county>")
+            response.write("<state>" & rs("State") & "</state>")
+            response.write("<rate>" & rs("Sales_Tax_Rate") & "</rate>")
+            response.write("<shippingtaxable>" & rs("Shipping_Taxable") & "</shippingtaxable>")
+            response.write("<server>Philly01</server>")
+    End If
+    response.write("</zip_code_lookup>")
+    'Close the Database
+    rs.Close
+    conn.Close
 
     response.write("</zip_code_lookups>")
 %>
