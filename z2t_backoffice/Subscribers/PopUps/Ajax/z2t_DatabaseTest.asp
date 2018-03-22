@@ -346,6 +346,33 @@
     response.write("<error_message>" & ErrorMessage(Error) & "</error_message>")
     response.write("</zip2tax.com>")
 
+    ' Start 5
+    set connPhilly01=server.CreateObject("ADODB.Connection")
+    
+    'connPhilly01.Open "driver={MySQL ODBC 5.1 Driver};Server=philly01.harvestamerican.net;User=davewj2o;Password=get2it2day;Database=Zip2Tax" '--Philly01
+    connPhilly01.Open "driver={MySQL ODBC 5.1 Driver};Server=philly01.harvestamerican.net;User=root;Password=start2gosoon;Database=Zip2Tax" '--Philly01
+    
+    set rs=server.createObject("ADODB.Recordset")
+
+    SQL =  "call zip2tax.z2t_lookup ('" & Request("zip") & "', '" & Request("usr") & "', '" & Request("pwd") & "')"
+    
+    'Response.write SQL
+    rs.open SQL, connPhilly01
+
+    response.write("<zip_code_lookup>")
+
+    If not rs.eof then
+        response.write("<zip>" & rs("Zip_Code") & "</zip>")
+        response.write("<city>" & rs("Post_Office_City") & "</city>")
+        response.write("<county>" & rs("County") & "</county>")
+        response.write("<state>" & rs("State") & "</state>")
+        response.write("<rate>" & rs("Sales_Tax_Rate") & "</rate>")
+        response.write("<shippingtaxable>" & rs("Shipping_Taxable") & "</shippingtaxable>")
+        response.write("<server>Philly01</server>")
+    End If
+
+    response.write("</zip_code_lookup>")
+
     response.write("</zip_code_lookups>")
 %>
 
